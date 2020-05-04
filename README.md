@@ -21,7 +21,7 @@ $ npm install -g @amazeelabs/silverback-tools
 $ svbt COMMAND
 running command...
 $ svbt (-v|--version|version)
-@amazeelabs/silverback-tools/1.0.0 linux-x64 node-v12.16.3
+@amazeelabs/silverback-tools/1.1.0 linux-x64 node-v12.16.3
 $ svbt --help [COMMAND]
 USAGE
   $ svbt COMMAND
@@ -54,7 +54,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3
 
 ## `svbt yaml [FILE] [DATA]`
 
-Store YAML string in a target file.
+Store YAML data into target file.
 
 ```
 USAGE
@@ -63,9 +63,16 @@ USAGE
 OPTIONS
   -h, --help  show CLI help
 
+DESCRIPTION
+  Store YAML data into target file.
+     Automatically changes output format based on file extension:
+     .yml  -> YAML
+     .yaml -> YAML
+     .json -> formatted JSON
+
 EXAMPLE
   $ svbt yaml test.yml "name: foo"
 ```
 
-_See code: [src/commands/yaml.ts](https://github.com/AmazeeLabs/silverback-tools/blob/v1.0.0/src/commands/yaml.ts)_
+_See code: [src/commands/yaml.ts](https://github.com/AmazeeLabs/silverback-tools/blob/v1.1.0/src/commands/yaml.ts)_
 <!-- commandsstop -->
