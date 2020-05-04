@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/AmazeeLabs/silverback-tools/compare/v1.1.0...v1.2.0) (2020-05-04)
+
+
+### Bug Fixes
+
+* **tests:** fixed typings of command test helper ([6c0c1e6](https://github.com/AmazeeLabs/silverback-tools/commit/6c0c1e6eb7f77baaac0a8ab8b9875efbd7c07c98))
+
+
+### Features
+
+* **yaml:** Merge into existing file. ([247396f](https://github.com/AmazeeLabs/silverback-tools/commit/247396fc149cb4f1df83a41198f7167c3fad7859))
+
 # [1.1.0](https://github.com/AmazeeLabs/silverback-tools/compare/v1.0.0...v1.1.0) (2020-05-04)
 
 

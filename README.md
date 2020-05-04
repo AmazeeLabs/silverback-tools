@@ -24,7 +24,7 @@ $ npm install -g @amazeelabs/silverback-tools
 $ svbt COMMAND
 running command...
 $ svbt (-v|--version|version)
-@amazeelabs/silverback-tools/1.1.0 linux-x64 node-v12.16.3
+@amazeelabs/silverback-tools/1.2.0 linux-x64 node-v12.16.3
 $ svbt --help [COMMAND]
 USAGE
   $ svbt COMMAND
@@ -73,9 +73,12 @@ DESCRIPTION
      .yaml -> YAML
      .json -> formatted JSON
 
+     If the target file already exists, the content is merged using lodash merge:
+     https://lodash.com/docs/#merge
+
 EXAMPLE
   $ svbt yaml test.yml "name: foo"
 ```
 
-_See code: [src/commands/yaml.ts](https://github.com/AmazeeLabs/silverback-tools/blob/v1.1.0/src/commands/yaml.ts)_
+_See code: [src/commands/yaml.ts](https://github.com/AmazeeLabs/silverback-tools/blob/v1.2.0/src/commands/yaml.ts)_
 <!-- commandsstop -->
