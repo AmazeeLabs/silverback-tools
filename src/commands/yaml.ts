@@ -4,7 +4,13 @@ import YAML from 'yaml';
 import * as path from 'path';
 
 export default class Yaml extends Command {
-  static description = 'Store YAML string in a target file.';
+  static description = `
+  Store YAML data into target file.
+  Automatically changes output format based on file extension:
+  .yml  -> YAML
+  .yaml -> YAML
+  .json -> formatted JSON
+  `;
 
   static examples = ['$ svbt yaml test.yml "name: foo"'];
 
