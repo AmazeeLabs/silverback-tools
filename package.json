@@ -71,11 +71,11 @@
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "format": "prettier --write \"**/*.{ts,md}\"",
+    "format": "prettier --write \"**/*.ts\"",
     "pretest": "tsc --noEmit",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "posttest": "eslint . --ext .ts --config .eslintrc && prettier --check \"**/*.{ts,md}\"",
-    "version": "oclif-dev readme && yarn format && git add README.md"
+    "posttest": "eslint . --ext .ts --config .eslintrc && prettier --check \"**/*.ts\"",
+    "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts",
   "release": {
