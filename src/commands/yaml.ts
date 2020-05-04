@@ -2,7 +2,8 @@ import {Command, flags} from '@oclif/command';
 import YAML from 'yaml';
 import * as path from 'path';
 import {YAMLError} from 'yaml/util';
-import {writeFile} from '../utils/fs';
+import {readFile, writeFile} from '../utils/fs';
+import {merge} from 'lodash';
 
 export default class Yaml extends Command {
   static description = `
@@ -11,6 +12,9 @@ export default class Yaml extends Command {
   .yml  -> YAML
   .yaml -> YAML
   .json -> formatted JSON
+
+  If the target file already exists, the content is merged using lodash merge:
+  https://lodash.com/docs/#merge
   `;
 
   static examples = ['$ svbt yaml test.yml "name: foo"'];
@@ -24,7 +28,12 @@ export default class Yaml extends Command {
   async run() {
     const {args} = this.parse(Yaml);
     try {
-      const data = YAML.parse(args.data);
+      const content = readFile(args.file);
+      const data = merge(
+        {},
+        content ? YAML.parse(content) : {},
+        YAML.parse(args.data)
+      );
       const output =
         path.extname(args.file) === '.json'
           ? JSON.stringify(data, null, 2) + '\n'

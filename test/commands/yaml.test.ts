@@ -1,5 +1,6 @@
 import {expect} from 'chai';
 import * as fs from '../../src/utils/fs';
+import * as YAML from 'yaml';
 import sinon from 'sinon';
 import {command} from '../../src/test/command';
 
@@ -36,5 +37,39 @@ describe('yaml', () => {
     expect(stub.calledOnce).to.be.true;
     expect(stub.getCall(0).args[0]).to.equal('test.json');
     expect(stub.getCall(0).args[1]).to.equal('{\n  "foo": "bar"\n}\n');
+  });
+
+  it('deep merges documents if the target file already exists', async () => {
+    const current = {
+      name: 'foo',
+      version: '1.0',
+      props: {
+        a: 'x',
+        b: 'y',
+      },
+    };
+
+    const input = {
+      name: 'bar',
+      props: {
+        b: 'z',
+      },
+    };
+
+    const expected = {
+      name: 'bar',
+      version: '1.0',
+      props: {
+        a: 'x',
+        b: 'z',
+      },
+    };
+
+    sinon.stub(fs, 'readFile').returns(YAML.stringify(current));
+    const writeMock = sinon.stub(fs, 'writeFile');
+    await command(['yaml', 'test.yml', YAML.stringify(input)]);
+    expect(writeMock.calledOnce).to.be.true;
+    expect(writeMock.getCall(0).args[0]).to.equal('test.yml');
+    expect(YAML.parse(writeMock.getCall(0).args[1])).to.deep.equal(expected);
   });
 });
