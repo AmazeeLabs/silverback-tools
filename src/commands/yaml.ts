@@ -1,5 +1,7 @@
 import {Command, flags} from '@oclif/command';
-import * as fs from 'fs';
+import fs from 'fs';
+import YAML from 'yaml';
+import * as path from 'path';
 
 export default class Yaml extends Command {
   static description = 'Store YAML string in a target file.';
@@ -14,6 +16,11 @@ export default class Yaml extends Command {
 
   async run() {
     const {args} = this.parse(Yaml);
-    fs.writeFileSync(args.file, args.data);
+    const data = YAML.parse(args.data);
+    const output =
+      path.extname(args.file) === '.json'
+        ? JSON.stringify(data, null, 2) + '\n'
+        : YAML.stringify(data);
+    fs.writeFileSync(args.file, output);
   }
 }
