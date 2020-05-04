@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "semi": [2, "always"],
+    "indent": ["error", 2, {"MemberExpression": 1}]
+  },
+  "extends": [
+    "oclif",
+    "oclif-typescript"
+  ]
+}
