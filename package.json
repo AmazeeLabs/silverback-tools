@@ -12,6 +12,7 @@
     "@oclif/config": "^1",
     "@oclif/errors": "^1.2.2",
     "@oclif/plugin-help": "^2",
+    "lodash": "^4.17.15",
     "tslib": "^1",
     "yaml": "^1.9.2"
   },
@@ -26,6 +27,7 @@
     "@semantic-release/npm": "^7.0.5",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/chai": "^4",
+    "@types/lodash": "^4.14.150",
     "@types/mocha": "^5",
     "@types/mock-fs": "^4.10.0",
     "@types/node": "^10",
