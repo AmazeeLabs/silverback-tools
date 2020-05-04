@@ -12,7 +12,8 @@
     "@oclif/config": "^1",
     "@oclif/errors": "^1.2.2",
     "@oclif/plugin-help": "^2",
-    "tslib": "^1"
+    "tslib": "^1",
+    "yaml": "^1.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -29,6 +30,7 @@
     "@types/mock-fs": "^4.10.0",
     "@types/node": "^10",
     "@types/sinon": "^9.0.0",
+    "@types/yaml": "^1.9.7",
     "chai": "^4",
     "eslint": "^5.13",
     "eslint-config-oclif": "^3.1",
@@ -69,12 +71,11 @@
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "readme": "oclif-dev readme && yarn format",
     "format": "prettier --write \"**/*.{ts,md}\"",
     "pretest": "tsc --noEmit",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "posttest": "eslint . --ext .ts --config .eslintrc && prettier --check \"**/*.{ts,md}\"",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && yarn format && git add README.md"
   },
   "types": "lib/index.d.ts",
   "release": {
