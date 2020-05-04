@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import fs from 'fs';
+import * as fs from '../../src/utils/fs';
 import sinon from 'sinon';
 import {command} from '../../src/test/command';
 
@@ -9,7 +9,7 @@ describe('yaml', () => {
   });
 
   it('writes YAML to a file with extension .yml', async () => {
-    const stub = sinon.stub(fs, 'writeFileSync');
+    const stub = sinon.stub(fs, 'writeFile');
     await command(['yaml', 'test.yml', 'foo: bar']);
     expect(stub.calledOnce).to.be.true;
     expect(stub.getCall(0).args[0]).to.equal('test.yml');
@@ -23,7 +23,7 @@ describe('yaml', () => {
   });
 
   it('writes YAML to a file with extension .yaml', async () => {
-    const stub = sinon.stub(fs, 'writeFileSync');
+    const stub = sinon.stub(fs, 'writeFile');
     await command(['yaml', 'test.yaml', 'foo: bar']);
     expect(stub.calledOnce).to.be.true;
     expect(stub.getCall(0).args[0]).to.equal('test.yaml');
@@ -31,7 +31,7 @@ describe('yaml', () => {
   });
 
   it('writes formatted JSON to a file with extension .json', async () => {
-    const stub = sinon.stub(fs, 'writeFileSync');
+    const stub = sinon.stub(fs, 'writeFile');
     await command(['yaml', 'test.json', 'foo: bar']);
     expect(stub.calledOnce).to.be.true;
     expect(stub.getCall(0).args[0]).to.equal('test.json');
