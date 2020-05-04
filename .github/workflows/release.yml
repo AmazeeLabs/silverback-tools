@@ -28,8 +28,6 @@ jobs:
           chmod +x ./cc-test-reporter
           ./cc-test-reporter format-coverage -t lcov coverage/lcov.info
           ./cc-test-reporter upload-coverage
-      - name: Regenerate readme
-        run: yarn readme
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
