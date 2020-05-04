@@ -16,6 +16,12 @@ describe('yaml', () => {
     expect(stub.getCall(0).args[1]).to.equal('foo: bar\n');
   });
 
+  it('raises an error on malformed yaml input', async () => {
+    expect(async () => {
+      await command(['yaml', 'test.yml', 'foo: bar\n  bar: baz']);
+    }).to.throw;
+  });
+
   it('writes YAML to a file with extension .yaml', async () => {
     const stub = sinon.stub(fs, 'writeFileSync');
     await command(['yaml', 'test.yaml', 'foo: bar']);
