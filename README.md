@@ -3,9 +3,12 @@
 Silverback CLI tools for scripted project maintenance.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/silverback-tools.svg)](https://npmjs.org/package/silverback-tools)
-[![Downloads/week](https://img.shields.io/npm/dw/silverback-tools.svg)](https://npmjs.org/package/silverback-tools)
-[![License](https://img.shields.io/npm/l/silverback-tools.svg)](https://github.com/AmazeeLabs/silverback-tools/blob/master/package.json)
+[![Build status](https://img.shields.io/github/workflow/status/AmazeeLabs/silverback-tools/Release)](https://github.com/AmazeeLabs/silverback-tools)
+[![Coverage](https://img.shields.io/codeclimate/coverage/AmazeeLabs/silverback-tools)](https://codeclimate.com/github/AmazeeLabs/silverback-tools)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/AmazeeLabs/silverback-tools)](https://codeclimate.com/github/AmazeeLabs/silverback-tools)
+[![Version](https://img.shields.io/npm/v/@amazeelabs/silverback-tools.svg)](https://npmjs.org/package/@amazeelabs/silverback-tools)
+[![Downloads/week](https://img.shields.io/npm/dw/@amazeelabs/silverback-tools.svg)](https://npmjs.org/@amazeelabs/package/@amazeelabs/silverback-tools)
+[![License](https://img.shields.io/npm/l/@amazeelabs/silverback-tools.svg)](https://github.com/AmazeeLabs/@amazeelabs/silverback-tools/blob/master/package.json)
 
 <!-- toc -->
 * [silverback-tools](#silverback-tools)
