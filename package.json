@@ -1,7 +1,7 @@
 {
   "name": "@amazeelabs/silverback-tools",
   "description": "Silverback CLI tools for scripted project maintenance.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Philipp Melab @pmelab",
   "bin": {
     "svbt": "./bin/run"
