@@ -2,7 +2,7 @@ import {expect} from 'chai';
 import * as fs from '../../src/utils/fs';
 import * as YAML from 'yaml';
 import sinon from 'sinon';
-import Yaml from '../../src/commands/yaml';
+import Yaml from './yaml';
 import {stderr} from 'stdout-stderr';
 
 describe('yaml', () => {

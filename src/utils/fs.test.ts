@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import fs from 'fs';
-import {readFile, writeFile} from '../../src/utils/fs';
+import {readFile, writeFile} from './fs';
 import sinon from 'sinon';
 
 beforeEach(() => {
