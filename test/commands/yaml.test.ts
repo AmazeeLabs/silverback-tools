@@ -2,7 +2,7 @@ import {expect} from 'chai';
 import * as fs from '../../src/utils/fs';
 import * as YAML from 'yaml';
 import sinon from 'sinon';
-import {command} from '../../src/utils/tests';
+import Yaml from '../../src/commands/yaml';
 
 describe('yaml', () => {
   beforeEach(() => {
@@ -11,7 +11,7 @@ describe('yaml', () => {
 
   it('writes YAML to a file with extension .yml', async () => {
     const stub = sinon.stub(fs, 'writeFile');
-    await command(['yaml', 'test.yml', 'foo: bar']);
+    await Yaml.run(['test.yml', 'foo: bar']);
     expect(stub.calledOnce).to.be.true;
     expect(stub.getCall(0).args[0]).to.equal('test.yml');
     expect(stub.getCall(0).args[1]).to.equal('foo: bar\n');
@@ -19,13 +19,13 @@ describe('yaml', () => {
 
   it('raises an error on malformed yaml input', async () => {
     expect(async () => {
-      await command(['yaml', 'test.yml', 'foo: bar\n  bar: baz']);
+      await Yaml.run(['test.yml', 'foo: bar\n  bar: baz']);
     }).to.throw;
   });
 
   it('writes YAML to a file with extension .yaml', async () => {
     const stub = sinon.stub(fs, 'writeFile');
-    await command(['yaml', 'test.yaml', 'foo: bar']);
+    await Yaml.run(['test.yaml', 'foo: bar']);
     expect(stub.calledOnce).to.be.true;
     expect(stub.getCall(0).args[0]).to.equal('test.yaml');
     expect(stub.getCall(0).args[1]).to.equal('foo: bar\n');
@@ -33,7 +33,7 @@ describe('yaml', () => {
 
   it('writes formatted JSON to a file with extension .json', async () => {
     const stub = sinon.stub(fs, 'writeFile');
-    await command(['yaml', 'test.json', 'foo: bar']);
+    await Yaml.run(['test.json', 'foo: bar']);
     expect(stub.calledOnce).to.be.true;
     expect(stub.getCall(0).args[0]).to.equal('test.json');
     expect(stub.getCall(0).args[1]).to.equal('{\n  "foo": "bar"\n}\n');
@@ -67,7 +67,7 @@ describe('yaml', () => {
 
     sinon.stub(fs, 'readFile').returns(YAML.stringify(current));
     const writeMock = sinon.stub(fs, 'writeFile');
-    await command(['yaml', 'test.yml', YAML.stringify(input)]);
+    await Yaml.run(['test.yml', YAML.stringify(input)]);
     expect(writeMock.calledOnce).to.be.true;
     expect(writeMock.getCall(0).args[0]).to.equal('test.yml');
     expect(YAML.parse(writeMock.getCall(0).args[1])).to.deep.equal(expected);
