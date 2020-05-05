@@ -1,5 +1,6 @@
 {
   "rules": {
+    "valid-jsdoc": "off",
     "semi": [2, "always"],
     "indent": ["error", 2, {"MemberExpression": 1}],
     "operator-linebreak": ["error", "after", { "overrides": { "?": "before", ":": "before" }}]
