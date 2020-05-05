@@ -41,7 +41,7 @@ export default class Yaml extends Command {
       writeFile(args.file, output);
     } catch (error) {
       if (error instanceof YAMLError) {
-        this.error(`Invalid YAML - ${error.message}:\n${error.source}`);
+        this.warn(`Invalid YAML - ${error.message}:\n${error.source}`);
       }
     }
   }

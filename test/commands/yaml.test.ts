@@ -3,6 +3,7 @@ import * as fs from '../../src/utils/fs';
 import * as YAML from 'yaml';
 import sinon from 'sinon';
 import Yaml from '../../src/commands/yaml';
+import {stderr} from 'stdout-stderr';
 
 describe('yaml', () => {
   beforeEach(() => {
@@ -18,9 +19,10 @@ describe('yaml', () => {
   });
 
   it('raises an error on malformed yaml input', async () => {
-    expect(async () => {
-      await Yaml.run(['test.yml', 'foo: bar\n  bar: baz']);
-    }).to.throw;
+    stderr.start();
+    await Yaml.run(['test.yml', 'foo: bar\n  bar: baz']);
+    stderr.stop();
+    expect(stderr.output).to.contain('Invalid YAML');
   });
 
   it('writes YAML to a file with extension .yaml', async () => {
